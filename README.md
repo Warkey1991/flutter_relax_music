@@ -134,35 +134,35 @@ samples, guidance on mobile development, and a full API reference.
     
     这里需要TabController的一个实现类[TabController](https://juejin.im/post/5ab73355f265da238e0db3fe)
     Tab 可以设置文字、图片等信息。
-  ```dart
- @override
-  Widget build(BuildContext context) {
-    return new Material(
-      child: new Scaffold(
-        appBar: new AppBar(
-            title: new Text("Relax Music")),
-        body:new TabBarView(
-            controller: _controller,
-            children: [
-              new MusicPage(),
-              new MeditationPage(),
-              new MinePage()
-            ]),
-        bottomNavigationBar: new Material(color: Colors.blue,
-          child: new TabBar(
-              indicatorWeight: 0.1,
-              labelPadding: const EdgeInsets.all(6.0),
+    ```dart
+    @override
+    Widget build(BuildContext context) {
+      return new Material(
+        child: new Scaffold(
+          appBar: new AppBar(
+              title: new Text("Relax Music")),
+          body:new TabBarView(
               controller: _controller,
-              tabs:[
-                new Tab(icon: new Icon(Icons.library_music)),
-                new Tab(icon: new Icon(Icons.perm_camera_mic)),
-                new Tab(icon: new Icon(Icons.person_outline))
-              ]
-          ),),
-      ),
-    );
-  }
-```
+              children: [
+                new MusicPage(),
+                new MeditationPage(),
+                new MinePage()
+              ]),
+          bottomNavigationBar: new Material(color: Colors.blue,
+            child: new TabBar(
+                indicatorWeight: 0.1,
+                labelPadding: const EdgeInsets.all(6.0),
+                controller: _controller,
+                tabs:[
+                  new Tab(icon: new Icon(Icons.library_music)),
+                  new Tab(icon: new Icon(Icons.perm_camera_mic)),
+                  new Tab(icon: new Icon(Icons.person_outline))
+                ]
+            ),),
+        ),
+      );
+    }
+  ```
     
     
     
