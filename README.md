@@ -36,7 +36,7 @@ samples, guidance on mobile development, and a full API reference.
    ```
    //本项目中我用到了 Decoration装饰属性设置了一张图充当背景的作用
    ```dart
-   new Container(
+   var cner = new Container(
          decoration: new BoxDecoration(
            image: new DecorationImage(image: new AssetImage("images/splash_background.png"),fit: BoxFit.cover)
          ),
@@ -71,4 +71,57 @@ samples, guidance on mobile development, and a full API reference.
            ),
          ],
        ));
-```
+   ```
+- Stack 实现相对布局的Widget。官方文档介绍A widget that positions its children relative to the edges of its box.(相对于其边缘定位其所有的子控件的一个小部件)
+  ```dart
+  class Stack extends MultiChildRenderObjectWidget {
+    /// Creates a stack layout widget.
+    ///
+    /// By default, the non-positioned children of the stack are aligned by their
+    /// top left corners.
+    Stack({
+      Key key,
+      this.alignment = AlignmentDirectional.topStart,
+      this.textDirection,
+      this.fit = StackFit.loose, //How to size the non-positioned children in the stack
+      this.overflow = Overflow.clip,
+      List<Widget> children = const <Widget>[],
+    }) : super(key: key, children: children);
+   ```
+  
+  **如果是child是non-positioned 控件，就需要使用alignment 和 fit来控制其位置和大小。**
+  **对于绘制child的顺序，则是第一个child被绘制在最底端，后面的依次在前一个child的上面，类似于web中的z-index。如果想调整显示的顺序，则可以通过摆放child的顺序来进行。**
+  
+  该项目代码用到的是positioned子控件。使用了left 和bottom属性定位其距左下角的位置。个人感觉在实际应用中该种方式比较好。
+  ```dart
+     var positioned = new Positioned(
+             child: new Column(
+               children: [
+                 new Image.asset('images/splash_icon.png',
+                     height: 60, width: 60, fit: BoxFit.cover),
+                 new Container(
+                   child: new Text('Relax Music',
+                       style: new TextStyle(
+                           color: Colors.white,
+                           fontSize: 14,
+                           decoration: TextDecoration.none)),
+                   padding: EdgeInsets.only(top: 20),
+                 ),
+                 new Container(
+                   child: new Text('Medication, Sleep Music and White Noise',
+                       style: new TextStyle(
+                           color: Colors.white,
+                           fontSize: 14,
+                           decoration: TextDecoration.none)),
+                   padding: EdgeInsets.only(top: 20),
+                 ),
+               ],
+               crossAxisAlignment: CrossAxisAlignment.start,
+             ),
+             left: 32.0,
+             bottom: 100,
+           );
+    
+  ```
+    
+  

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:relax_music/utils/DLog.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -55,7 +56,15 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    DLog.d("SplashPage dispose");
+
+  }
   void _goMainPage() {
+    //使用pushReplacementNamed 将在新的route加载到堆栈中时，前一个route 将销毁
     Navigator.of(context).pushReplacementNamed("/MainPage");
   }
 }
