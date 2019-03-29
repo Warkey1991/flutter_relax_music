@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'MusicPage.dart';
-import 'MeditationPage.dart';
-import 'MinePage.dart';
+import 'musicpage.dart';
+import 'meditationpage.dart';
+import 'minepage.dart';
 
 //应用的主界面，主要是负责实现三个子页面的跳转切换逻辑。
 class HomePage extends StatefulWidget {

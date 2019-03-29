@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:relax_music/pages/SplashPage.dart';
-import 'package:relax_music/pages/HomePage.dart';
+import 'package:relax_music/pages/splashpage.dart';
+import 'package:relax_music/pages/homepage.dart';
+import 'package:relax_music/pages/playmusic.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/MainPage': (context) => HomePage(),
+          '/PlayPage': (context) => PlayMusic(),
         },
         home: new SplashPage());
   }

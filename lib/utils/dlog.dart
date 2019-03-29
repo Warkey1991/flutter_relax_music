@@ -8,5 +8,4 @@ class DLog {
       print("$tag:$msg");
     }
   }
-
 }

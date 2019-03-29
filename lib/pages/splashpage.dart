@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:relax_music/utils/DLog.dart';
+import 'package:relax_music/utils/dlog.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -11,14 +11,14 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     var widget = new Container(
         decoration: new BoxDecoration(
-            image: new DecorationImage(image: new AssetImage("images/splash_background.png"),fit: BoxFit.cover)
+            image: new DecorationImage(image: new AssetImage("resource/images/splash_background.png"),fit: BoxFit.cover)
         ),
         child: new Stack(
           children: [
             new Positioned(
               child: new Column(
                 children: [
-                  new Image.asset('images/splash_icon.png',
+                  new Image.asset('resource/images/splash_icon.png',
                       height: 60, width: 60, fit: BoxFit.cover),
                   new Container(
                     child: new Text('Relax Music',
@@ -58,7 +58,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     DLog.d("SplashPage dispose");
 
